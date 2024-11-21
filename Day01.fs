@@ -1,6 +1,5 @@
 module Day01
 
-open Client
 open System
 open System.Text.RegularExpressions
 
@@ -36,7 +35,7 @@ let getCalibrationValue pattern line =
     let digits = extractDigits pattern line
     digits.[0] * 10 + digits.[digits.Length-1]
 
-let input = getInput 2023 1
+let input = Client.getInput 2023 1
 
 let solve getCalibrationValue = 
     input
