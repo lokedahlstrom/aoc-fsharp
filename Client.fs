@@ -3,7 +3,6 @@ module Client
 open System
 open System.IO
 open System.Net.Http
-open System.Text.RegularExpressions
 
 let cookie = 
     let path = "cookie"
