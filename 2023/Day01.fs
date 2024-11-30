@@ -37,11 +37,13 @@ let getCalibrationValue pattern line =
 
 let input = Client.getInput 2023 1
 
-let solve getCalibrationValue = 
+let solve method = 
     input
-    |> Seq.map getCalibrationValue
-    |> Seq.sum
+    |> Seq.sumBy method
+    
+let partOne = getCalibrationValue @"\d"
+let partTwo = getCalibrationValue @"\d|one|two|three|four|five|six|seven|eight|nine"
 
 let run () =
-    printfn "Day 01, Part one: %d" (solve (getCalibrationValue(@"\d")))
-    printfn "Day 01, Part two: %d" (solve (getCalibrationValue(@"\d|one|two|three|four|five|six|seven|eight|nine")))
+    printfn $"Day 01, Part one: %d{solve partOne}"
+    printfn $"Day 01, Part two: %d{solve partTwo}"
