@@ -25,6 +25,6 @@ let ``Sample-Rows-PartTwo`` (line: string, expected: int) =
 [<Theory>]
 [<InlineData("oneight", 18)>]
 [<InlineData("threeight", 38)>]
-let ``Combined-Numbers`` (line: string, expected: int) =
+let ``Combined-Numbers-PartTwo`` (line: string, expected: int) =
     let x = Year2023.Day01.partTwo line
     Assert.Equal(expected, x)
