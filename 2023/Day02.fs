@@ -1,4 +1,4 @@
-module Day02
+module Year2023.Day02
 
 let input = Client.getInput 2023 2
 

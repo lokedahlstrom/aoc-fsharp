@@ -27,7 +27,9 @@ let private cache year day path =
     File.WriteAllText(path, input.TrimEnd())
 
 let getInput year day =
-    let path = $"input-{year}-{day:D2}.txt"
+    let path = $"{year}/input-{day:D2}.txt"
+    
+    Directory.CreateDirectory($"{year}") |> ignore
 
     match File.Exists(path) with
         | true -> Console.WriteLine($"Reading input {year}/{day:D2} from cache...")

@@ -1,4 +1,4 @@
-module Day01
+module Year2023.Day01
 
 open System
 open System.Text.RegularExpressions
@@ -42,6 +42,6 @@ let solve getCalibrationValue =
     |> Seq.map getCalibrationValue
     |> Seq.sum
 
-let run () = 
+let run () =
     printfn "Day 01, Part one: %d" (solve (getCalibrationValue(@"\d")))
     printfn "Day 01, Part two: %d" (solve (getCalibrationValue(@"\d|one|two|three|four|five|six|seven|eight|nine")))
