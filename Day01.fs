@@ -42,6 +42,7 @@ let solve getCalibrationValue =
     |> Seq.map getCalibrationValue
     |> Seq.sum
 
-let solution = 
-    printfn "Day 01, Part one: %d" (solve (getCalibrationValue(@"\d")))
-    printfn "Day 01, Part two: %d" (solve (getCalibrationValue(@"\d|one|two|three|four|five|six|seven|eight|nine")))
+module Day1 =
+    let run () = 
+        printfn "Day 01, Part one: %d" (solve (getCalibrationValue(@"\d")))
+        printfn "Day 01, Part two: %d" (solve (getCalibrationValue(@"\d|one|two|three|four|five|six|seven|eight|nine")))

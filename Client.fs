@@ -15,7 +15,7 @@ let cookie =
 
 let private getInputFromAOC year day = async {
     let url = $"https://adventofcode.com/{year}/day/{day}/input"
-    Console.WriteLine("Downloading input from aoc...")
+    Console.WriteLine($"Downloading input {year}/{day:D2} from aoc...")
 
     use client = new HttpClient()
     client.DefaultRequestHeaders.Add("Cookie", $"session={cookie}")
@@ -31,6 +31,6 @@ let getInput year day =
     let path = $"input-{year}-{day:D2}.txt"
 
     match File.Exists(path) with
-        | true -> Console.WriteLine("Reading input from cache...")
+        | true -> Console.WriteLine($"Reading input {year}/{day:D2} from cache...")
         | _ -> cache year day path
     File.ReadAllLines(path)
