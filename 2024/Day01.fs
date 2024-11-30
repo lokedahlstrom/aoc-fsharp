@@ -3,8 +3,7 @@ module Year2024.Day01
 let input = Client.getInput 2024 1
 
 let solve = 
-    input
-    |> ignore
+    input |> ignore
     0
 
 let run () =

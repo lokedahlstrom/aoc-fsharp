@@ -35,3 +35,4 @@ let getInput year day =
         | true -> Console.WriteLine($"Reading input {year}/{day:D2} from cache...")
         | _ -> cache year day path
     File.ReadAllLines(path)
+    
