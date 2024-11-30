@@ -9,6 +9,6 @@
     <Compile Include="2023/Day02.fs" />
     <Compile Include="2024/Day01.fs" />
     <Compile Include="Program.fs" />
-    <Content Include="READ.me" />
+    <Content Include="README.md" />
   </ItemGroup>
 </Project>
