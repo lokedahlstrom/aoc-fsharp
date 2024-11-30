@@ -1,4 +1,4 @@
-module AOC._2024.Day01_Tests
+module Tests.Year2023.Day01
 open Xunit
 
 [<Theory>]
