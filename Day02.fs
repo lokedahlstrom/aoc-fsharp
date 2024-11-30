@@ -13,5 +13,4 @@ let solve =
     |> Seq.map parseInput
     |> ignore
 
-module Day2 =
-    let run () = solve
+let run () = solve

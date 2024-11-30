@@ -8,6 +8,7 @@ let run name =
 
 [<EntryPoint>]
 let main argv =
+    printfn $"Running %s{argv[0]}"
     run argv[0]
     0
   
