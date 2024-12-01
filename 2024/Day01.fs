@@ -15,32 +15,30 @@ let collect (s: string) =
     left.Add(lVal)
     right.Add(rVal)
     
-    match appearances.TryGetValue(rVal) with
-    | true, value -> appearances[rVal] <- value + 1
-    | false, _ -> appearances[rVal] <- 1
+    appearances[rVal] <- appearances.GetValueOrDefault(rVal, 0) + 1
     
 let readInput () =
     Client.getInput 2024 1
     |> Seq.iter collect
-   
+
+let calcDistance (l, r) = abs (l - r)
+
 let totalDistance () =
     left.Sort()
     right.Sort()
     
-    left
-    |> Seq.mapi (fun index value -> abs (value - right[index]))
+    Seq.zip left right
+    |> Seq.map calcDistance
     |> Seq.sum
+    
+let calcSimilarity value =
+    value * appearances.GetValueOrDefault(value, 0)
 
 let similarityScore () = 
     left
-    |> Seq.sumBy (fun value ->
-        value *
-            match appearances.TryGetValue(value) with
-            | true, v -> v
-            | false, _ -> 0
-        )
+    |> Seq.sumBy calcSimilarity
 
 let run () =
-    readInput()
+    readInput ()
     printfn $"Day 01, Part one: %d{totalDistance()}"
     printfn $"Day 01, Part two: %d{similarityScore()}"
