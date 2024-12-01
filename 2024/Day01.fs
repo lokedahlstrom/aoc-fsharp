@@ -3,8 +3,6 @@ module Year2024.Day01
 open System.Collections.Generic
 open System.Text.RegularExpressions
 
-let input = Client.getInput 2024 1
-
 let left = ResizeArray([])
 let right = ResizeArray([])
 let appearances = Dictionary<int, int>()
@@ -22,7 +20,7 @@ let collect (s: string) =
     | false, _ -> appearances[rVal] <- 1
     
 let readInput () =
-    input
+    Client.getInput 2024 1
     |> Seq.iter collect
    
 let totalDistance () =
