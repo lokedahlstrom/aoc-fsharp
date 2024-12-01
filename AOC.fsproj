@@ -10,6 +10,8 @@
     <Compile Include="2023\Day01.Tests.fs" />
     <Compile Include="2024/Day01.fs" />
     <Compile Include="2024\Day01.Tests.fs" />
+    <Compile Include="2024\Day02.fs" />
+    <Compile Include="2024\Day02.Tests.fs" />
     <Compile Include="Program.fs" />
     <Content Include="README.md" />
   </ItemGroup>
