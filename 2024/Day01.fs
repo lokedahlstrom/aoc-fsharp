@@ -21,10 +21,11 @@ let collect (s: string) =
     | true, value -> appearances[rVal] <- value + 1
     | false, _ -> appearances[rVal] <- 1
     
-let totalDistance =
+let readInput () =
     input
     |> Seq.iter collect
-    
+   
+let totalDistance () =
     left.Sort()
     right.Sort()
     
@@ -32,7 +33,7 @@ let totalDistance =
     |> Seq.mapi (fun index value -> abs (value - right[index]))
     |> Seq.sum
 
-let similarityScore = 
+let similarityScore () = 
     left
     |> Seq.sumBy (fun value ->
         value *
@@ -42,5 +43,6 @@ let similarityScore =
         )
 
 let run () =
-    printfn $"Day 01, Part one: %d{totalDistance}"
-    printfn $"Day 01, Part two: %d{similarityScore}"
+    readInput()
+    printfn $"Day 01, Part one: %d{totalDistance()}"
+    printfn $"Day 01, Part two: %d{similarityScore()}"
