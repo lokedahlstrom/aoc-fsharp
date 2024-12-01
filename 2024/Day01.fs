@@ -1,6 +1,5 @@
 module Year2024.Day01
 
-open System
 open System.Collections.Generic
 open System.Text.RegularExpressions
 
@@ -19,8 +18,8 @@ let collect (s: string) =
     right.Add(rVal)
     
     match appearances.TryGetValue(rVal) with
-    | true, value -> appearances.[rVal] <- value + 1
-    | false, _ -> appearances.[rVal] <- 1
+    | true, value -> appearances[rVal] <- value + 1
+    | false, _ -> appearances[rVal] <- 1
     
 let totalDistance =
     input
