@@ -7,10 +7,10 @@ open System.Net.Http
 let cookie = 
     let path = "cookie"
     match File.Exists(path) with
-        | true -> File.ReadAllText(path)
-        | _ -> 
-            Console.WriteLine($"Missing session cookie file in '{path}'")
-            ""
+    | true -> File.ReadAllText(path)
+    | _ -> 
+        Console.WriteLine($"Missing session cookie file in '{path}'")
+        ""
 
 let private getInputFromAOC year day = async {
     let url = $"https://adventofcode.com/{year}/day/{day}/input"
