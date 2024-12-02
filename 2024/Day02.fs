@@ -16,15 +16,11 @@ let reportIsSafe (report: int[]) =
         pairs |> Seq.forall (fun (prev, cur) -> (cur < prev) && (safeDifference (cur, prev)))
         
 let reportIsSafe2 (report: int[]) =
-    if not (reportIsSafe report) then
+    if reportIsSafe report then true
+    else
         report
         |> Seq.mapi (fun index _ -> index)
-        |> Seq.exists (fun i ->
-            let newReport = Array.removeAt i report
-            reportIsSafe newReport
-            )
-    else
-        true
+        |> Seq.exists (fun i -> reportIsSafe (Array.removeAt i report))
         
 let partOne data =  
     data
@@ -39,5 +35,5 @@ let partTwo data =
     |> Seq.length
     
 let run () =
-    printfn $"Day 01, Part one: %d{partOne (input())}"
-    printfn $"Day 01, Part two: %d{partTwo (input())}"
+    printfn $"Day 02, Part one: %d{partOne (input())}"
+    printfn $"Day 02, Part two: %d{partTwo (input())}"

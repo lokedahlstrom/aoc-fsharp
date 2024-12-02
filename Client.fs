@@ -31,8 +31,8 @@ let getInput year day =
     
     Directory.CreateDirectory($"{year}") |> ignore
 
-    match File.Exists(path) with
-        | true -> Console.WriteLine($"Reading input {year}/{day:D2} from cache...")
-        | _ -> cache year day path
+    if not (File.Exists(path)) then
+        cache year day path
+        
     File.ReadAllLines(path)
     

@@ -13,5 +13,5 @@ let partTwo data =
     0
 
 let run () =
-    printfn $"Day 01, Part one: %d{partOne (input())}"
-    printfn $"Day 01, Part two: %d{partTwo (input())}"
+    printfn $"Day 03, Part one: %d{partOne (input())}"
+    printfn $"Day 03, Part two: %d{partTwo (input())}"
