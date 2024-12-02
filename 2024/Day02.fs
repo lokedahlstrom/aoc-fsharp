@@ -1,8 +1,5 @@
 module Year2024.Day02
 
-open System
-open System.Security.AccessControl
-
 let input () = Client.getInput 2024 2
 
 let stringToInt s = int s
