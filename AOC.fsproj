@@ -11,7 +11,9 @@
     <Compile Include="2024/Day01.fs" />
     <Compile Include="2024\Day01.Tests.fs" />
     <Compile Include="2024\Day02.fs" />
+    <Compile Include="2024\Day03.fs" />
     <Compile Include="2024\Day02.Tests.fs" />
+    <Compile Include="2024\Day03.Tests.fs" />
     <Compile Include="Program.fs" />
     <Content Include="README.md" />
   </ItemGroup>
