@@ -10,10 +10,13 @@ let safeDifference (l: int, r: int) =
 let reportIsSafe (report: int[]) =
     let pairs = report |> Seq.pairwise
     
-    if pairs |> Seq.forall (fun (prev, cur) -> (cur > prev) && (safeDifference (cur, prev))) then
-        true
-    else
+    let allIncreasing =
+        pairs |> Seq.forall (fun (prev, cur) -> (cur > prev) && (safeDifference (cur, prev)))
+        
+    let allDecreasing =
         pairs |> Seq.forall (fun (prev, cur) -> (cur < prev) && (safeDifference (cur, prev)))
+        
+    allIncreasing || allDecreasing
         
 let reportIsSafe2 (report: int[]) =
     if reportIsSafe report then true
