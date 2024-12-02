@@ -35,10 +35,10 @@ let getCalibrationValue pattern line =
     let digits = extractDigits pattern line
     digits.[0] * 10 + digits.[digits.Length-1]
 
-let input = Client.getInput 2023 1
+let input () = Client.getInput 2023 1
 
 let solve method = 
-    input
+    input()
     |> Seq.sumBy method
     
 let partOne = getCalibrationValue @"\d"
