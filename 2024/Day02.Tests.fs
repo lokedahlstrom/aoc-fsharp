@@ -1,6 +1,7 @@
 module Tests.Year2024.Day02
 open Xunit
 open Year2024.Day02
+open Helpers
 
 let sample = """
 7 6 4 2 1

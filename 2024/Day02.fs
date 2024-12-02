@@ -1,12 +1,7 @@
 module Year2024.Day02
+open Helpers
 
 let input () = Client.getInput 2024 2
-
-let stringToInt s = int s
-    
-let stringToInts (line: string) =
-    line.Split(" ")
-    |> Array.map stringToInt
     
 let safeDifference (l: int, r: int) =
     let delta = abs (l - r)
