@@ -20,7 +20,7 @@ let reportIsSafe2 (report: int[]) =
         report
         |> Seq.mapi (fun index _ -> index)
         |> Seq.exists (fun i ->
-            let newReport = Array.append (report[..i-1]) (report[i+1..])
+            let newReport = Array.removeAt i report
             reportIsSafe newReport
             )
     else
