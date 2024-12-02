@@ -19,17 +19,7 @@ let reportIsSafe (report: int[]) =
         true
     else
         pairs |> Seq.forall (fun (prev, cur) -> (cur < prev) && (safeDifference (cur, prev)))
-
-let partOne data =
-    data
-    |> Seq.map stringToInts
-    |> Seq.fold (fun acc cur ->
-        if reportIsSafe cur then
-            acc + 1
-        else
-            acc
-    ) 0
-    
+        
 let reportIsSafe2 (report: int[]) =
     if not (reportIsSafe report) then
         report
@@ -41,15 +31,17 @@ let reportIsSafe2 (report: int[]) =
     else
         true
         
+let partOne data =  
+    data
+    |> Seq.map stringToInts
+    |> Seq.filter reportIsSafe
+    |> Seq.length
+        
 let partTwo data =
     data
     |> Seq.map stringToInts
-    |> Seq.fold (fun acc cur ->
-        if reportIsSafe2 cur then
-            acc + 1
-        else
-            acc
-    ) 0
+    |> Seq.filter reportIsSafe2
+    |> Seq.length
     
 let run () =
     printfn $"Day 01, Part one: %d{partOne (input())}"
