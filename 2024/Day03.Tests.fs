@@ -1,5 +1,4 @@
 module Tests.Year2024.Day03
-open System.Text.RegularExpressions
 open Xunit
 open Year2024.Day03
 
