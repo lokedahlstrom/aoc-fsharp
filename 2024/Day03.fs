@@ -21,14 +21,14 @@ let findOperationsPartTwo s =
     opRegex.Matches(s)
     |> Seq.map (_.Value)
     
-let processOperation (s: string) =
+let processOperations (s: string) =
     findOperations s
     |> Seq.map multiply
     |> Seq.fold (fun acc cur -> acc + cur) 0
 
 let partOne data =
     data
-    |> Seq.fold (fun acc line -> acc + processOperation line) 0 
+    |> Seq.fold (fun acc line -> acc + processOperations line) 0 
 
 let partTwo data =
     let mutable isOn = true
