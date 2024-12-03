@@ -23,12 +23,11 @@ let findOperationsPartTwo s =
     
 let processOperations (s: string) =
     findOperations s
-    |> Seq.map multiply
-    |> Seq.fold (fun acc cur -> acc + cur) 0
+    |> Seq.sumBy multiply
 
 let partOne data =
     data
-    |> Seq.fold (fun acc line -> acc + processOperations line) 0 
+    |> Seq.sumBy processOperations
 
 let partTwo data =
     let mutable isOn = true
