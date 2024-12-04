@@ -5,70 +5,49 @@ let input () = Client.getInput 2024 4
 let partOne (data: string[]) =
     let WIDTH = data[0].Length
     let HEIGHT = data.Length
+    let M = 'M'
+    let A = 'A'
+    let S = 'S'
     
     let forward (x, y) =    
         if (x+3) >= WIDTH then false
         else
-            let a = data[y][x+1]
-            let b = data[y][x+2]
-            let c = data[y][x+3]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y][x+1] && A = data[y][x+2] && S = data[y][x+3]
          
     let backward (x, y) =    
         if (x-3) < 0 then false
         else
-            let a = data[y][x-1]
-            let b = data[y][x-2]
-            let c = data[y][x-3]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y][x-1] && A = data[y][x-2] && S = data[y][x-3]
 
     let up (x, y) =    
         if (y-3) < 0 then false
         else
-            let a = data[y-1][x]
-            let b = data[y-2][x]
-            let c = data[y-3][x]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y-1][x] && A = data[y-2][x] && S = data[y-3][x]
             
     let down (x, y) =    
         if (y+3) >= HEIGHT then false
         else
-            let a = data[y+1][x]
-            let b = data[y+2][x]
-            let c = data[y+3][x]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y+1][x] && A = data[y+2][x] && S = data[y+3][x]
             
     let diagUL (x, y) =    
         if (y-3) < 0 || (x-3) < 0 then false
         else
-            let a = data[y-1][x-1]
-            let b = data[y-2][x-2]
-            let c = data[y-3][x-3]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y-1][x-1] && A = data[y-2][x-2] && S = data[y-3][x-3]
             
     let diagUR (x, y) =    
         if (y-3) < 0 || (x+3) >= WIDTH then false
         else
-            let a = data[y-1][x+1]
-            let b = data[y-2][x+2]
-            let c = data[y-3][x+3]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y-1][x+1] && A = data[y-2][x+2] && S = data[y-3][x+3]
             
     let diagDL (x, y) =    
         if (y+3) >= HEIGHT || (x-3) < 0 then false
         else
-            let a = data[y+1][x-1]
-            let b = data[y+2][x-2]
-            let c = data[y+3][x-3]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y+1][x-1] && A = data[y+2][x-2] && S = data[y+3][x-3]
 
     let diagDR (x, y) =    
         if (y+3) >= HEIGHT || (x+3) >= WIDTH then false
         else
-            let a = data[y+1][x+1]
-            let b = data[y+2][x+2]
-            let c = data[y+3][x+3]
-            a = 'M' && b = 'A' && c = 'S'
+            M = data[y+1][x+1] && A = data[y+2][x+2] && S = data[y+3][x+3]
             
     let isXmas (y, line: string) =
         let countMatches (x, y) =
