@@ -60,12 +60,9 @@ let partTwo data =
             )
         
         let comparer l r =
-            if pre.ContainsKey l && pre[l].Contains r then
-                1 
-            elif pre.ContainsKey r && pre[r].Contains l then
-                -1
-            else
-                0
+            if pre.ContainsKey l && pre[l].Contains r then 1 
+            elif pre.ContainsKey r && pre[r].Contains l then -1
+            else 0
 
         update |> Seq.sortWith comparer |> Seq.toArray
     
