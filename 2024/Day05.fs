@@ -16,6 +16,10 @@ let parseUpdates (m: Match) =
     |> Seq.filter (fun x -> x.Length > 1)
     |> Seq.map (fun o -> o.Value.Trim().Split(",") |> Seq.map int |> Seq.toArray)
     |> Seq.toArray
+    
+let parse data =
+    let m = inputRegex.Match(data)
+    parseRules m, parseUpdates m
 
 let correctOrder (update: int[], rules: int[][]) =
     update
@@ -28,10 +32,6 @@ let correctOrder (update: int[], rules: int[][]) =
             not (Array.contains r[1] leftPart)
             )
     )
-    
-let parse data =
-    let m = inputRegex.Match(data)
-    parseRules m, parseUpdates m
     
 let partOne data =
     let rules, updates = parse data
