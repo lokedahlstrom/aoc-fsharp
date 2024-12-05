@@ -29,21 +29,19 @@ let correctOrder (update: int[], rules: int[][]) =
             )
     )
     
-let partOne data =
+let parse data =
     let m = inputRegex.Match(data)
+    parseRules m, parseUpdates m
     
-    let rules = parseRules m 
-    let updates = parseUpdates m
-            
+let partOne data =
+    let rules, updates = parse data
+
     updates
     |> Seq.filter (fun u -> correctOrder(u, rules))
     |> Seq.sumBy (fun update -> update[update.Length / 2])
     
 let partTwo data =
-    let m = inputRegex.Match(data)
-    
-    let rules = parseRules m 
-    let updates = parseUpdates m
+    let rules, updates = parse data
     
     let fixOrder (update: int[]) =
         let pre = Dictionary()
