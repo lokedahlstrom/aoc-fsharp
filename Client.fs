@@ -26,7 +26,7 @@ let private cache year day path =
     let input = getInputFromAOC year day |> Async.RunSynchronously
     File.WriteAllText(path, input.TrimEnd())
 
-let getInput year day =
+let getInputAsString year day =
     let path = $"{year}/input-{day:D2}.txt"
     
     Directory.CreateDirectory($"{year}") |> ignore
@@ -34,5 +34,11 @@ let getInput year day =
     if not (File.Exists(path)) then
         cache year day path
         
-    File.ReadAllLines(path)
+    File.ReadAllText(path)
+
+let getInput year day =
+    getInputAsString year day
+    |> fun str -> str.Split("\n")
+    
+
     
