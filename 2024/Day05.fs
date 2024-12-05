@@ -67,8 +67,7 @@ let partTwo data =
     updates
     |> Seq.filter (fun u -> not (correctOrder(u, rules)))
     |> Seq.map fixOrder
-    |> Seq.sumBy (fun update ->
-        update[update.Length / 2])
+    |> Seq.sumBy (fun update -> update[update.Length / 2])
     
 let run () =
     printfn $"Day 05, Part one: %d{partOne (input())}"
