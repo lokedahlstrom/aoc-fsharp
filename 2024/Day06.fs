@@ -79,8 +79,8 @@ let partTwo (data, visited: Dictionary<string, bool>) =
         while not cycle && ny >= 0 && nx >= 0 && ny < map.Length && nx < map[0].Length do
             let key = createKey(ny,nx,newD)
             if visited.ContainsKey key then
-                visited[key] <- visited[key]+1
-            visited.TryAdd (key, 1) |> ignore 
+                cycle <- true
+            visited.TryAdd (key, true) |> ignore 
             
             let testY = ny+fst newD
             let testX = nx+snd newD
