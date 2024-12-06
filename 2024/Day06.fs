@@ -1,7 +1,6 @@
 module Year2024.Day06
 
 open System.Collections.Generic
-open Helpers
 
 let input () = Client.getInput 2024 6
 
@@ -9,9 +8,6 @@ let Guard = '^'
 let Obstacle = '#'
 
 let ternary (predicate: bool, whenTrue: Option<'T>, whenFalse: Option<'T>) =
-    if predicate then whenTrue else whenFalse
-
-let ifthenelse (predicate: bool, whenTrue, whenFalse) =
     if predicate then whenTrue else whenFalse
 
 let parseGrid (data: string[]) =
@@ -58,17 +54,12 @@ let partOne data =
         visited, visited.Count
 
     match findStartPos (map, Guard) with
-    | Some(y, x) ->
-        let res = move (y, x, (-1, 0))
-        res
+    | Some(y, x) -> move (y, x, (-1, 0))
     | None -> Dictionary(), 0
         
 let partTwo (data, visited: Dictionary<string, bool>) =
     let map = parseGrid data
-    
-    let W = map[0].Length
-    let H = map.Length
-    
+        
     let move (y: int, x:int, d) =
         let mutable newD = d
         let mutable ny = y
