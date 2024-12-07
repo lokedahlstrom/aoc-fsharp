@@ -76,11 +76,13 @@ let partTwo (data, visited: Dictionary<string, bool>) =
             let testY = ny+fst newD
             let testX = nx+snd newD
             
+            // either rotate OR move each round!
             if testY >= 0 && testX >= 0 && testY < map.Length && testX < map[0].Length && map[ny+fst newD][nx+snd newD] = Obstacle then
                 newD <- rotate90CW(newD)
-
-            ny <- ny + fst newD
-            nx <- nx + snd newD
+            else
+                ny <- ny + fst newD
+                nx <- nx + snd newD
+    
                 
         cycle
 
