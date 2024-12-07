@@ -6,12 +6,12 @@ let parseLine (line: string) =
     line.Split([| ':'; ' ' |])
     |> Array.filter (fun t -> t.Length > 0)
     |> Array.map bigint.Parse
+    
+let parseData (data: string[]) = data |> Array.map parseLine
 
 let mul (l, r) = l * r
 let add (l, r) = l + r
 let cct (l, r) = bigint.Parse(string l + string r)
-
-let parseData (data: string[]) = data |> Array.map parseLine
 
 let rec solvable (ops, expected: bigint, numbers: bigint[], total: bigint, i) =
     if i >= numbers.Length then
