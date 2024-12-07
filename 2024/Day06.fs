@@ -82,7 +82,6 @@ let partTwo (data, visited: Dictionary<string, bool>) =
             else
                 ny <- ny + fst newD
                 nx <- nx + snd newD
-    
                 
         cycle
 
