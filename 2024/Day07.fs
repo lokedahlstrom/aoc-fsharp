@@ -27,7 +27,7 @@ let solve operations data =
         let total = numbers[0]
         
         solvable(operations, expected, numbers, total, 1))
-    |> Array.sumBy (fun eq -> eq[0])
+    |> Array.sumBy (fun line -> line[0])
     
 let partOne data =
     let ops = [| mul; add |]
